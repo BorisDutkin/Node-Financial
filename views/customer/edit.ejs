@@ -1,17 +1,16 @@
 <form action="/customer/update/<%= customer.id %>" method="post">
-
-  <h2>Update a Customer</h2>
-
-  <input type="text" placeholder="Name" name="name" value="<%= customer.name %>" />
-  <br>
-  <br>
-  <input type="text" placeholder="Email" name="email" value="<%= customer.email %>" />
-  <br>
-  <br>
-  <input type="text" placeholder="State" name="state" value="<%= customer.state %>" />
-  <br>
-  <br>
-
-  <input type="submit" value="Edit Customer" />
-
+  <fieldset>
+    <legend>Edit Customer</legend>
+    <label>Name</label>
+    <input type="text" placeholder="Name" name="name" value="<%= customer.name %>" />
+    <label>Email</label>
+    <input type="text" placeholder="Email" name="email" value="<%= customer.email %>" />
+    <label>State</label>
+    <input type="text" placeholder="State" name="state" value="<%= customer.state %>" />
+    <br>
+    <br>
+    <button class="btn btn-default" type="submit">Edit</button>
+  </fieldset>
 </form>
+
+<a href="/customer/" class="btn btn-primary">Back To The List</a>

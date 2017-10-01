@@ -1,7 +1,13 @@
-<h1><%= customer.name %></h1>
-<hr>
-<h3><%= customer.email %></h3>
+<form>
+  <fieldset>
+    <legend>Customer Details</legend>
+    <label>Name</label>
+    <input type="text" placeholder="Name" name="name" value="<%= customer.name %>" disabled />
+    <label>Email</label>
+    <input type="text" placeholder="Email" name="email" value="<%= customer.email %>" disabled />
+    <label>State</label>
+    <input type="text" placeholder="State" name="state" value="<%= customer.state %>" disabled />
+  </fieldset>
+</form>
 
-<% if (customer.state != undefined) { %>
-<h4><%= customer.state %></h4>
-<% } %>
+<a href="/customer/" class="btn btn-primary">Back To The List</a>

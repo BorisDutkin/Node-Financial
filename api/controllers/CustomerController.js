@@ -32,6 +32,9 @@ module.exports = {
       // no customer
       if(!customer) return next();
 
+      // customize undefined state for the view
+      customer.state = customer.state != undefined ? customer.state : '';
+
       // return view with customer
       response.view({
         customer: customer
