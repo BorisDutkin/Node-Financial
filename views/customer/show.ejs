@@ -10,4 +10,12 @@
   </fieldset>
 </form>
 
+<form action="/stock/new" method="post">
+  <fieldset>
+    <input type="hidden" name="owner" value="<%= customer.id %>" />
+    <br>
+    <button type="submit" class="btn btn-default">Add Stock</button>
+  </fieldset>
+</form>
+
 <a href="/customer/" class="btn btn-primary">Back To The List</a>

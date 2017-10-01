@@ -1,0 +1,12 @@
+<form action="/stock/create" method="post">
+  <fieldset>
+    <legend>Create a new Stock for <%= customer.name %></legend>
+    <input type="hidden" name="owner" value="<%= customer.id %>" />
+    <label>Symbol</label>
+    <input type="text" placeholder="Symbol" name="symbol" />
+    <label>Number of Shares</label>
+    <input type="number" placeholder="Number of Shares" name="number_of_shares" />
+    <br>
+    <button type="submit" class="btn btn-default">Add Stock</button>
+  </fieldset>
+</form>
