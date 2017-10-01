@@ -82,6 +82,12 @@ module.exports = {
       response.redirect('/customer/show/' + request.param('id'));
 
     });
+  },
+
+  destroy: function(request, response, next) {
+    Customer.destroy(request.param('id')).exec(function customerDestroyed() {
+      response.redirect('/customer/');
+    });
   }
 
 };
