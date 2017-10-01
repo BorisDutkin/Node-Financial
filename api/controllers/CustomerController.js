@@ -51,6 +51,37 @@ module.exports = {
       });
 
     });
+  },
+
+  edit: function(request, response, next) {
+    Customer.findOne(request.param('id'), function customerCreated(error, customer) {
+
+      // error
+      if(error) return next(error);
+
+      // no customer
+      if(!customer) return next();
+
+      // customize undefined state for the view
+      customer.state = customer.state != undefined ? customer.state : '';
+
+      // return view with customer
+      response.view({
+        customer: customer
+      });
+
+    });
+  },
+
+  update: function(request, response, next) {
+    Customer.update(request.param('id'), request.params.all(), function customerUpdate(error) {
+
+      // error
+      if(error) return response.redirect('/customer/edit/' + request.param('id'));
+
+      response.redirect('/customer/show/' + request.param('id'));
+
+    });
   }
 
 };
