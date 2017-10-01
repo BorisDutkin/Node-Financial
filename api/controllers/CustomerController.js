@@ -24,13 +24,13 @@ module.exports = {
   },
 
   show: function(request, response, next) {
-    Customer.findOne(request.param('id'), function customerCreated(error, customer) {
+    Customer.findOne(request.param('id')).populateAll().exec(function customerCreated(error, customer) {
 
       // error
-      if(error) return next(error);
+      if (error) return next(error);
 
       // no customer
-      if(!customer) return next();
+      if (!customer) return next();
 
       // customize undefined state for the view
       customer.state = customer.state != undefined ? customer.state : '';

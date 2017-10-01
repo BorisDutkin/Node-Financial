@@ -1,12 +1,43 @@
 <form>
   <fieldset>
+
     <legend>Customer Details</legend>
+
     <label>Name</label>
     <input type="text" placeholder="Name" name="name" value="<%= customer.name %>" disabled />
     <label>Email</label>
     <input type="text" placeholder="Email" name="email" value="<%= customer.email %>" disabled />
     <label>State</label>
     <input type="text" placeholder="State" name="state" value="<%= customer.state %>" disabled />
+
+    <legend>Stocks</legend>
+
+    <table class="table">
+
+      <tr>
+        <th>Symbol</th>
+        <th>Number of Shares</th>
+        <th>Current Price</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+      <% _.each(customer.stocks, function(stock) { %>
+
+      <tr data-id="<%= stock.id %>" data-model="stock">
+        <td><%= stock.symbol %></td>
+        <td><%= stock.number_of_shares %></td>
+        <td></td>
+        <td><a href="/stock/show/<%= stock.id %>">Show</a></td>
+        <td><a href="/stock/edit/<%= stock.id %>">Edit</a></td>
+        <td><a href="/stock/destroy/<%= stock.id %>">Delete</a></td>
+      </tr>
+
+      <% }) %>
+
+    </table>
+
   </fieldset>
 </form>
 

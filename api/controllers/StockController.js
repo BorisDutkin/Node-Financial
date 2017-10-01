@@ -30,7 +30,7 @@ module.exports = {
      // error
      if(error) return next(error);
 
-     response.json(stock);
+     response.redirect('/customer/show/' + stock.owner);
 
    });
   }
