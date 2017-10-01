@@ -40,5 +40,18 @@ module.exports = {
     });
   },
 
+  index: function(request, response, next) {
+    Customer.find(function foundCustomers(error, customers) {
+
+      // error
+      if(error) return next(error);
+
+      response.view({
+        customers: customers
+      });
+
+    });
+  }
+
 };
 

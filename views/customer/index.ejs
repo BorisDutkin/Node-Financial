@@ -1,0 +1,34 @@
+<h1>Customers</h1>
+
+<br />
+
+<table class="table">
+
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>State</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% _.each(customers, function(customer) { %>
+
+  <tr data-id="<%= customer.id %>" data-model="customer">
+    <td><%= customer.id %></td>
+    <td><%= customer.name %></td>
+    <td><%= customer.email %></td>
+    <% if(customer.state != undefined) { %>
+    <td><%= customer.state %></td>
+    <% } else { %>
+    <td></td>
+    <% } %>
+    <td><a class="btn btn-default" href="/customer/show/<%= customer.id %>">Show</a></td>
+    <td><a class="btn btn-info" href="/customer/edit/<%= customer.id %>">Edit</a></td>
+    <td><a class="btn btn-danger" href="/customer/destroy/<%= customer.id %>">Delete</a></td>
+  </tr>
+
+  <% }) %>
+
+</table>
